@@ -1,40 +1,40 @@
-# Tourism Analytics & Recommendation System
+## System Data Flow Diagram
 
-An end-to-end Tourism Analytics and Recommendation System built using Machine Learning.  
-The project combines rating prediction, visit-mode classification, user segmentation, and personalized tourism recommendations into a unified pipeline.
+```mermaid
+flowchart TD
 
-## Project Overview
+    A[Tourism Dataset] --> B[Data Cleaning & EDA]
 
-This project analyzes tourism transaction and user data to understand visitor behavior and build machine learning models for:
+    B --> C[Feature Engineering]
 
-- Rating Prediction
-- Visit Mode Prediction
-- User Segmentation
-- Personalized Attraction Recommendation
-- End-to-End Tourism Prediction Pipeline
-- Streamlit-based Prediction Interface
+    C --> D[Rating Prediction<br/>XGBoost Regression]
 
-## Project Workflow
+    C --> E[Visit Mode Prediction<br/>XGBoost Classification]
 
-```text
-Tourism Data
-     ↓
-Data Cleaning & EDA
-     ↓
-Feature Engineering
-     ↓
-Rating Prediction
-     ↓
-Visit Mode Classification
-     ↓
-User Segmentation
-     ↓
-Recommendation System
-     ↓
-Advanced Recommendation
-     ↓
-Model Evaluation
-     ↓
-End-to-End Pipeline
-     ↓
-Streamlit Application
+    C --> F[User Segmentation<br/>K-Means Clustering]
+
+    C --> G[Recommendation Engine]
+
+    G --> G1[Collaborative Filtering]
+    G --> G2[Content-Based Filtering]
+    G --> G3[Attraction Popularity]
+    G --> G4[User Behavior]
+
+    G1 --> H[Advanced Hybrid Recommendation]
+    G2 --> H
+    G3 --> H
+    G4 --> H
+
+    D --> I[End-to-End Pipeline]
+    E --> I
+    F --> I
+    H --> I
+
+    I --> J[Final Tourism Recommendation Output]
+
+    J --> K[Streamlit Application]
+
+    K --> L[Predicted Rating]
+    K --> M[Predicted Visit Mode]
+    K --> N[User Segment]
+    K --> O[Recommended Attractions]
